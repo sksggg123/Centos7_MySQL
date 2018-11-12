@@ -123,6 +123,22 @@
             +---+
             1 row in set (0.00 sec)
         ```        
->## 8. quit로 mysql 빠져 나간 뒤 변경한 password로 로그인이 되는지 확인하면 마무리~
+8. quit로 mysql 빠져 나간 뒤 변경한 password로 로그인이 되는지 확인하면 마무리~
 
+9. 방화벽 port open
+    * sudo firewall-cmd --list-ports 명령어를 통해 현재 방화벽 상태 확인
+        * 현재 웹서버를 설치 해둔 상태이기에 80, 443, 8080 port가 열린 상태이다.
+        ```java
+            [root@sksggg123 etc]# sudo firewall-cmd --list-ports
+            80/tcp 443/tcp 8080/tcp
+        ```
+    * sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent 명렁어를 통해 3306 port open    
+        ```java
+            [root@sksggg123 etc]# sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent
+            success
+            [root@sksggg123 etc]# sudo firewall-cmd --reload
+            success
+            [root@sksggg123 etc]# sudo firewall-cmd --list-ports
+            80/tcp 443/tcp 8080/tcp 3306/tcp
+        ```
 참고 정리 사이트 : http://myjamong.tistory.com/6?category=833422
