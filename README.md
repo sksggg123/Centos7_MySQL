@@ -1,3 +1,7 @@
+>## DB ( MySql, MariaDB, Oracle)
+*   mysql - http://dlwodus.tistory.com/166
+*   mariaDB - https://wikidocs.net/16274
+
 ># Centos7 Mysql 5.7.20 설치
 1. 설치할 버전을 찾기 위해 MySQL홈페이지 - DOWNLOADS - Community - MySQL Yum Repository 아래 A Quick Guide to Using the MySQL Yum Repository 링크를 클릭한다. [Click! (go to download page)](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)
 
@@ -141,4 +145,35 @@
             [root@sksggg123 etc]# sudo firewall-cmd --list-ports
             80/tcp 443/tcp 8080/tcp 3306/tcp
         ```
+
+10. 외부 Tool을 통해 DB에 바로 접속 하기 위해서는 아래 설정이 필요하다
+    * 모든 IP 허용
+    ```java
+        mysql> GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'password';
+        Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+        mysql> FLUSH PRIVILEGES;
+        Query OK, 0 rows affected (0.00 sec)
+    ```
+
+    * 특정 대역 허용
+    ```java
+        mysql> GRANT ALL PRIVILEGES ON *.* TO root@'xxx.xxx.%' IDENTIFIED BY 'password';
+        Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+        mysql> FLUSH PRIVILEGES;
+        Query OK, 0 rows affected (0.00 sec)
+    ```
+
+    * 특정 IP 허용
+    ```java
+        mysql> GRANT ALL PRIVILEGES ON *.* TO root@'xxx.xxx.xxx.xxx' IDENTIFIED BY 'password';
+        Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+        mysql> FLUSH PRIVILEGES;
+        Query OK, 0 rows affected (0.00 sec)
+    ```
+
+
+
 참고 정리 사이트 : http://myjamong.tistory.com/6?category=833422
