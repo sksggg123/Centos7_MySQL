@@ -1,7 +1,3 @@
->## DB ( MySql, MariaDB, Oracle)
-*   mysql - http://dlwodus.tistory.com/166
-*   mariaDB - https://wikidocs.net/16274
-
 ># Centos7 Mysql 5.7.20 설치
 1. 설치할 버전을 찾기 위해 MySQL홈페이지 - DOWNLOADS - Community - MySQL Yum Repository 아래 A Quick Guide to Using the MySQL Yum Repository 링크를 클릭한다. [Click! (go to download page)](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)
 
